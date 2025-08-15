@@ -63,8 +63,9 @@ class PlanController:
         calendar: Optional[CalendarService] = None,
     ):
         self.local = local
-        self.drive = drive
-        self.calendar = calendar
+        # Avoid shadowing endpoint methods named `drive` and `calendar`
+        self.drive_service = drive
+        self.calendar_service = calendar
 
     # ---- helpers ----
     @staticmethod
@@ -101,15 +102,15 @@ class PlanController:
         return {"ok": True}
 
     def drive(self, plan_in: PlanIn) -> dict:
-        if not self.drive:
+        if not self.drive_service:
             return {"ok": False, "error": "Drive service not configured"}
-        self.drive.run(self._to_course_plan(plan_in))
+        self.drive_service.run(self._to_course_plan(plan_in))
         return {"ok": True}
 
     def calendar(self, plan_in: PlanIn) -> dict:
-        if not self.calendar:
+        if not self.calendar_service:
             return {"ok": False, "error": "Calendar service not configured"}
-        self.calendar.run(self._to_course_plan(plan_in))
+        self.calendar_service.run(self._to_course_plan(plan_in))
         return {"ok": True}
 
 
