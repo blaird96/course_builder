@@ -121,8 +121,10 @@ def build_router(controller: PlanController) -> APIRouter:
     router = APIRouter()
 
     @router.post("/plan/autofill", response_model=PlanIn)
-    def autofill(root: str, course_name: str, weeks: int, start: Optional[date] = None):
-        return controller.autofill(root, course_name, weeks, start)
+    def autofill(plan: PlanIn):
+        start = plan.weeks[0].start if plan.weeks else None
+        weeks = len(plan.weeks)
+        return controller.autofill(plan.root, plan.course_name, weeks, start)
 
     @router.post("/plan/preview", response_model=PreviewOut)
     def preview(plan: PlanIn):
