@@ -1,0 +1,53 @@
+.landing {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: center;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.hero {
+  max-width: 800px;
+}
+
+.hero h1 {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+.hero p {
+  margin-bottom: 2rem;
+  font-size: 1.25rem;
+}
+
+.cta {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  background-color: #646cff;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.feature {
+  background: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+@media (prefers-color-scheme: light) {
+  .feature {
+    background: #f3f3f3;
+  }
+}
+
