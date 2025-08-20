@@ -37,7 +37,14 @@ function LandingPage() {
       <section className="hero">
         <h1>Course Builder</h1>
         <p>Create, manage, and share interactive courses right from your browser.</p>
-        <a href="#" className="cta" onClick={(e)=>{e.preventDefault(); testApiPreview();}}>Get Started</a>
+        <button
+          type="button"
+          className="cta"
+          style={{ border: 'none', cursor: 'pointer' }}
+          onClick={() => { window.location.href = '/onboarding' }}
+        >
+          Get Started
+        </button>
       </section>
 
       <section className="test-section">
