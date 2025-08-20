@@ -1,6 +1,7 @@
 from course_builder.models import CoursePlan
 from course_builder.utils import format_week_folder, format_dates
 
+
 def apply_local(plan: CoursePlan) -> None:
     print("\nCreating directories locally...")
     created = 0
